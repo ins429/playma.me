@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>example arcade game</title>
+  </head>
+  <body>
+    <video playsinline autoplay muted></video>
+    <canvas id="canvas" style="width: 50%; height: 50%; display: block; margin: 0 auto;"></canvas>
+    <script type="text/javascript" src="es6-promise.js"></script>
+    <script type="text/javascript" src="browserfs.min.js"></script>
+    <script type="text/javascript" src="loader.js"></script>
+    <script type="text/javascript">
+      var emulator = new Emulator(
+        document.querySelector("#canvas"),
+        null,
+        new JSMAMELoader(
+          JSMAMELoader.driver("ddsoma"),
+          JSMAMELoader.nativeResolution(256, 256),
+          JSMAMELoader.scale(3),
+          JSMAMELoader.emulatorJS("emulators/mamecps2.js"),
+          JSMAMELoader.mountFile(
+            "ddsoma.zip",
+            JSMAMELoader.fetchFile("Game File", "examples/ddsoma.zip")
+          )
+        )
+      );
+      emulator.start({ waitAfterDownloading: true });
+    </script>
+    <div id="root"></div>
+  </body>
+</html>
