@@ -6,9 +6,10 @@ const Home = () => {
   const history = useHistory()
 
   return (
-    <div className="h-screen flex flex-col items-center  justify-content">
+    <div className="h-screen flex flex-col items-center justify-center">
+      <h1 className="text-xl text-center align-bottom">Play MAME</h1>
       <form
-        className="min-w-280 flex-1 flex flex-col items-center justify-center m-4"
+        className="min-w-280 flex flex-col m-4"
         onSubmit={() => history.push(`/${window.encodeURIComponent(channel)}`)}
       >
         <input
