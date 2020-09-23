@@ -13,14 +13,14 @@ const Home = () => {
         onSubmit={() => history.push(`/${window.encodeURIComponent(channel)}`)}
       >
         <input
-          className="bg-white text-lg focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 mb-2 block w-full appearance-none leading-normal"
+          className="nes-input bg-white text-lg py-2 px-4 mb-2 block w-full"
           aria-label="Channel Name"
           placeholder="Channel Name"
           value={channel}
           onChange={({ target: { value } }) => setChannel(value)}
         />
         <button
-          className="w-full text-lg bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="nes-btn is-primary w-full text-lg text-white font-bold py-2 px-4"
           aria-label="join"
           type="submit"
           disabled={!channel.trim()}

@@ -141,25 +141,16 @@ const MameEmulator = ({ children, onStart }) => {
             Emulator Driver
           </label>
           <div className="relative flex-1 mr-1">
-            <select
-              name="emulator_filename"
-              className="w-full block text-base md:text-xs appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-2 px-3 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              defaultValue="mameneogeo.js"
-            >
-              <option value="mameneogeo.js">Neo-geo</option>
-              <option value="mamecps2.js">CPS2 (Capcomp Play System 2)</option>
-              <option value="mamepsikyosh.js">PSIKYO</option>
-              <option value="mamebublbobl.js">bublbobl</option>
-              <option value="mametaito_b.js">taito_b</option>
-            </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-              <svg
-                className="fill-current h-4 w-4"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-              </svg>
+            <div className="nes-select">
+              <select name="emulator_filename" defaultValue="mameneogeo.js">
+                <option value="mameneogeo.js">Neo-geo</option>
+                <option value="mamecps2.js">
+                  CPS2 (Capcomp Play System 2)
+                </option>
+                <option value="mamepsikyosh.js">PSIKYO</option>
+                <option value="mamebublbobl.js">bublbobl</option>
+                <option value="mametaito_b.js">taito_b</option>
+              </select>
             </div>
           </div>
         </div>
@@ -175,18 +166,21 @@ const MameEmulator = ({ children, onStart }) => {
             name="bios_name"
             type="text"
             placeholder="filename"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2"
+            className="nes-input mb-4"
             onChange={e => setBiosFileName(e.target.value)}
             value={biosFilename}
           />
-          <input
-            name="bios"
-            accept=".zip"
-            type="file"
-            onChange={e => {
-              setBiosFileName(e.target?.files[0]?.name || '')
-            }}
-          />
+          <label class="nes-btn">
+            <span>Select a bios</span>
+            <input
+              name="bios"
+              accept=".zip"
+              type="file"
+              onChange={e => {
+                setBiosFileName(e.target?.files[0]?.name || '')
+              }}
+            />
+          </label>
         </div>
         <div className="mb-5">
           <label
@@ -199,22 +193,25 @@ const MameEmulator = ({ children, onStart }) => {
             name="game_name"
             type="text"
             placeholder="filename"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2"
+            className="nes-input mb-4"
             onChange={e => setGameFilename(e.target.value)}
             value={gameFilename}
           />
-          <input
-            name="game"
-            accept=".zip"
-            type="file"
-            onChange={e => {
-              setGameFilename(e.target?.files[0]?.name || '')
-            }}
-          />
+          <label class="nes-btn">
+            <span>Select a game</span>
+            <input
+              name="game"
+              accept=".zip"
+              type="file"
+              onChange={e => {
+                setGameFilename(e.target?.files[0]?.name || '')
+              }}
+            />
+          </label>
         </div>
         <div className="flex items-center justify-between">
           <button
-            className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="nes-btn is-primary w-full text-lg text-white font-bold py-2 px-4"
             type="submit"
           >
             start
