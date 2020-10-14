@@ -97,9 +97,9 @@ const MameEmulator = ({ children, onStart }) => {
   const [error, setError] = useState(false)
 
   return (
-    <div className="w-full max-w-xs">
+    <div className="nes-container is-rounded w-full max-w-sm">
       <form
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="bg-white rounded mb-4"
         onSubmit={async e => {
           e.preventDefault()
 
@@ -129,19 +129,19 @@ const MameEmulator = ({ children, onStart }) => {
         }}
       >
         {error && (
-          <p className="text-red-500 text-sm italic my-2">
+          <p className="text-red-500 text-xs italic my-2">
             Please select a game archive.
           </p>
         )}
         <div className="mb-5">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-xs font-bold mb-2"
             htmlFor="emulator_filename"
           >
             Emulator Driver
           </label>
           <div className="relative flex-1 mr-1">
-            <div className="nes-select">
+            <div className="nes-select text-xs">
               <select name="emulator_filename" defaultValue="mameneogeo.js">
                 <option value="mameneogeo.js">Neo-geo</option>
                 <option value="mamecps2.js">
@@ -156,7 +156,7 @@ const MameEmulator = ({ children, onStart }) => {
         </div>
         <div className="mb-5">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-xs font-bold mb-2"
             htmlFor="bios_name"
           >
             Bios(.zip)
@@ -171,7 +171,7 @@ const MameEmulator = ({ children, onStart }) => {
             value={biosFilename}
           />
           <label class="nes-btn">
-            <span>Select a bios</span>
+            <span className="text-xs">Select a bios</span>
             <input
               name="bios"
               accept=".zip"
@@ -184,7 +184,7 @@ const MameEmulator = ({ children, onStart }) => {
         </div>
         <div className="mb-5">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-xs font-bold mb-2"
             htmlFor="game_name"
           >
             Game Archive(.zip)
@@ -198,7 +198,7 @@ const MameEmulator = ({ children, onStart }) => {
             value={gameFilename}
           />
           <label class="nes-btn">
-            <span>Select a game</span>
+            <span className="text-xs">Select a game</span>
             <input
               name="game"
               accept=".zip"
